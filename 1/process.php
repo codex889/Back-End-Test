@@ -1,7 +1,7 @@
 <?php
 
-$text="0000000000000000000000000000000";
-$len=strlen($text);
+$text=$_GET['text'];
+echo $len=strlen($text);
 
 $row=0;
 $num=2;
