@@ -6,7 +6,7 @@
 <body>
 	<table>
 		<tr>
-			<td>ตัวอักษร a-z</td><td><input type="text" id="key" maxlength="1"></td><td><input type="button" id="mySend" value="ผลลัทธ์"></td>
+			<td>ตัวอักษร a-z</td><td><input type="text" id="key" maxlength="1" onchange="isEnglishchar(this.value)"></td><td><input type="button" id="mySend" value="ผลลัทธ์"></td>
 		</tr>
 	</table>
 	<hr />
@@ -29,6 +29,23 @@
 				}	
 		});
 	}
+	function isEnglishchar(str){   
+	    var orgi_text="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";   
+	    var str_length=str.length;   
+	    var isEnglish=true;   
+	    var Char_At="";   
+	    for(i=0;i<str_length;i++){   
+	        Char_At=str.charAt(i);   
+	        if(orgi_text.indexOf(Char_At)==-1){   
+	            isEnglish=false;   
+	            break;
+	        }      
+	    }  
+	    if(isEnglish==false){
+    		document.getElementById('key').value = "";
+    		document.getElementById('strShow').innerHTML = "";
+  		}
+	}  
 	</script>
 </body>
 </html>
