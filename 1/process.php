@@ -19,6 +19,10 @@ $row=($row*2)-1;
 $count=0;
 $len=$row;
 $center=ceil($row/2);
+?>
+<table>
+<tr><td align="center">
+<?php
 while($row>0){
 	if($center<$row){
 		echo substr($text,$count,$len)."<br>";
@@ -37,5 +41,6 @@ while($row>0){
 	}
 	$row--;
 }
-
 ?>
+</td></tr>
+</table>
