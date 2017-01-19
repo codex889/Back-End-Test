@@ -18,11 +18,23 @@ while($len>0){
 $row=($row*2)-1;
 $count=0;
 $len=$row;
-
+$center=ceil($row/2);
 while($row>0){
-	echo substr($text,$count,$len)."<br>";
-	$count=$count+$len;
-	$len=$len-2;
+	if($center<$row){
+		echo substr($text,$count,$len)."<br>";
+		$count=$count+$len;
+		$len=$len-2;
+	}
+	else if($center==$row){
+		echo substr($text,$count,$len)."<br>";
+		$count=$count+1;
+		$len=$len+2;
+	}
+	else if($center>$row){
+		echo substr($text,$count,$len)."<br>";
+		$count=$count+$len;
+		$len=$len+2;
+	}
 	$row--;
 }
 
