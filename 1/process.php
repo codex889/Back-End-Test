@@ -15,6 +15,15 @@ while($len>0){
 	}
 	$row++;
 }
-echo $row=($row*2)-1;
+$row=($row*2)-1;
+$count=0;
+$len=$row;
+
+while($row>0){
+	echo substr($text,$count,$len)."<br>";
+	$count=$count+$len;
+	$len=$len-2;
+	$row--;
+}
 
 ?>
