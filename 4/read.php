@@ -19,13 +19,31 @@ $result=$conn->query($sql);
 <?php
 while(list($personnel_id,$personnel_name,$personnel_age,$personnel_salary)=mysqli_fetch_row($result)){
 ?>
-	<tr><td><?=$personnel_id?></td><td><?=$personnel_name?></td><td><?=$personnel_age?></td><td><?=$personnel_salary?></td><td><a href="#">edit</a></td><td><a href="#">delete</a></td></tr>
+	<tr><td><?=$personnel_id?></td><td><?=$personnel_name?></td><td><?=$personnel_age?></td><td><?=$personnel_salary?></td><td><button onclick="edit('<?=$personnel_id?>')">edit</button></td><td><button onclick="del('<?=$personnel_id?>')">delete</button></td></tr>
 <?php
 }
 ?>
 </table>
+<br>
+<button id="add">เพิ่มข้อมูล</button>
 <?php
 $conn->close();
 ?>
+<script>
+	$(document).ready(function(){
+		$('#add').click(function(){
+			$('#strShow').load('add.html');
+		});
+	});
+	function edit(str){
+		$('#strShow').load('edit.php?id='+str);
+	}
+	function del(str){
+		if(confirm('ต้องการลบใช่หรือไม่?')){
+			$('#strShow').load('delete.php?id='+str);
+		}
+	}
+
+</script>
 </body>
 </html>
