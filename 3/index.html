@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title>ค้นหาข้อมูลเงินเดือน</title>
+	<script src="../jquery-1.7.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>เงินเดือนไม่น้อยกว่า :</td><td><input type="number" id="salary" min="1"></td><td><input type="button" id="mySend" value="ค้นหา"></td>
+		</tr>
+	</table>
+	<hr />
+	<div id="strShow"></div>
+	<script>
+	$(document).ready(function(){
+		$('#mySend').click(function(){
+			mySalary();
+		});
+	});
+	function mySalary(){
+		var salary = $('#salary').val();
+		$.get('process.php', {salary:salary},
+			function(data){
+				$('#strShow').html('ผลการค้นหา : '+data);
+		});
+	}
+	</script>
+</body>
+</html>
