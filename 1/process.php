@@ -15,6 +15,6 @@ while($len>0){
 	}
 	$row++;
 }
-echo $row;
+echo $row=($row*2)-1;
 
 ?>
