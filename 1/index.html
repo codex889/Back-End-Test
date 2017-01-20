@@ -6,14 +6,14 @@
 <body>
 	<table>
 		<tr>
-			<td><input type="text" id="text" size="100%"></td>
+			<td><input type="text" id="text" size="100%"></td><td><td><input type="button" id="mySend" value="รัน"></td>
 		</tr>
 	</table>
 	<hr />
 	<div id="strShow"></div>
 	<script>
 	$(document).ready(function(){
-		$('#text').change(function(){
+		$('#mySend').click(function(){
 			myText();
 		});
 	});
