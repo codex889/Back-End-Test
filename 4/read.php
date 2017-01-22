@@ -5,17 +5,13 @@
 </head>
 <body>
 <?php
-$db_host = "localhost"; 
-$db_username = "root"; 
-$db_pass = "";  
-$db_name = "backendtest"; 
+include "../db.php";
 
-$conn = new mysqli($db_host, $db_username, $db_pass, $db_name);
 $sql = "SELECT * FROM `personnel`";
 $result=$conn->query($sql);
 ?>
 <table border="1">
-	<tr><th>Id</th><th>Name</th><th>Age</th><th>Salary</th><td>Edit</td><td>Delete</td></tr>
+	<tr><th>Id</th><th>Name</th><th>Age</th><th>Salary</th><th>Edit</th><th>Delete</th></tr>
 <?php
 while(list($personnel_id,$personnel_name,$personnel_age,$personnel_salary)=mysqli_fetch_row($result)){
 ?>
